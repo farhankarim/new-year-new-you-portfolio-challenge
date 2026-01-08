@@ -1,10 +1,10 @@
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { PROJECTS } from '../constants.tsx';
 import { Project } from '../types.ts';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <div className="bg-gray-800 rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
+  <div className="bg-gray-800 rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20 h-full flex flex-col">
     <img 
       src={project.imageUrl} 
       alt={project.title} 
@@ -13,9 +13,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
       height="400"
       loading="lazy"
     />
-    <div className="p-6">
+    <div className="p-6 flex flex-col flex-grow">
       <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-      <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+      <p className="text-gray-400 mb-4 text-sm flex-grow">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.tags.map(tag => (
           <span key={tag} className="bg-indigo-900/50 text-indigo-300 text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span>
@@ -31,14 +31,50 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
 
 
 const Projects: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20" ref={sectionRef}>
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Featured Projects
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {PROJECTS.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {PROJECTS.map((project, index) => (
+           <div
+            key={project.title}
+            className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            style={{ transitionDelay: `${index * 100}ms` }}
+          >
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </section>

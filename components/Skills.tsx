@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { SKILLS } from '../constants.tsx';
 import { Skill } from '../types.ts';
 
@@ -11,14 +11,50 @@ const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
 );
 
 const Skills: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20" ref={sectionRef}>
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         My Tech Stack
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-5xl mx-auto">
-        {SKILLS.map((skill) => (
-          <SkillCard key={skill.name} skill={skill} />
+        {SKILLS.map((skill, index) => (
+          <div
+            key={skill.name}
+            className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            style={{ transitionDelay: `${index * 50}ms` }}
+          >
+            <SkillCard skill={skill} />
+          </div>
         ))}
       </div>
     </section>
