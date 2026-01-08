@@ -22,6 +22,6 @@
   "scripts": {
     "build:css": "tailwindcss -i ./styles.css -o ./dist/styles.css --minify",
     "build:js": "esbuild index.tsx --bundle --minify --outfile=dist/index.js --jsx=automatic --define:process.env.API_KEY='\"$API_KEY\"'",
-    "build": "mkdir -p dist && cp index.prod.html dist/index.html && npm run build:css && npm run build:js"
+    "build": "rm -rf dist && mkdir -p dist && cp -r public/* dist/ && cp index.prod.html dist/index.html && npm run build:css && npm run build:js"
   }
 }
