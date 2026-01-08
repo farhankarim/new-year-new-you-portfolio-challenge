@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { GoogleGenAI, Chat } from '@google/genai';
 import MarkdownIt from 'markdown-it';
-import { ChatMessage } from '../types';
+import { ChatMessage } from '../types.ts';
 
 const MESSAGE_LIMIT = 5; // The maximum number of messages a user can send per session.
 

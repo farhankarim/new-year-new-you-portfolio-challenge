@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { PROJECTS } from '../constants';
-import { Project } from '../types';
+import { PROJECTS } from '../constants.tsx';
+import { Project } from '../types.ts';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div className="bg-gray-800 rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">

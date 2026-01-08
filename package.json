@@ -13,10 +13,15 @@
     "@types/markdown-it": "^14.1.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
     "esbuild": "^0.23.0",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5.5.3"
   },
   "scripts": {
-    "build": "mkdir -p dist && cp index.html dist/index.html && esbuild index.tsx --bundle --minify --outfile=dist/index.js --jsx=automatic --define:process.env.API_KEY='\"$API_KEY\"'"
+    "build:css": "tailwindcss -i ./styles.css -o ./dist/styles.css --minify",
+    "build:js": "esbuild index.tsx --bundle --minify --outfile=dist/index.js --jsx=automatic --define:process.env.API_KEY='\"$API_KEY\"'",
+    "build": "mkdir -p dist && cp index.prod.html dist/index.html && npm run build:css && npm run build:js"
   }
 }

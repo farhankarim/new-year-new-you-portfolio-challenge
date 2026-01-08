@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { SKILLS } from '../constants';
-import { Skill } from '../types';
+import { SKILLS } from '../constants.tsx';
+import { Skill } from '../types.ts';
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
   <div className="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-gray-700 hover:scale-105">

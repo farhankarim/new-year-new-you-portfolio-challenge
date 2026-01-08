@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Project, Skill } from './types';
+import { Project, Skill } from './types.ts';
 
 // Icons for skills
 const ReactIcon = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-cyan-400"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.828-12.828a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zm5.656 0a1 1 0 0 1 1.414 1.414L14.828 12l1.414 1.414a1 1 0 0 1-1.414 1.414L12 12.828l-2.828 2.828a1 1 0 0 1-1.414-1.414L10.586 12 9.172 10.586a1 1 0 0 1 1.414-1.414L12 10.586l2.828-2.828zM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>;
@@ -29,21 +29,24 @@ export const PROJECTS: Project[] = [
     title: 'CRM/CMS for Premier Banks',
     description: 'Engineered and customized complex CRM and CMS modules serving premier banks in Pakistan. Collaborated with cross-functional teams to gather requirements and ensure smooth system integration.',
     tags: ['PHP', 'Laravel', 'JavaScript', 'CRM', 'CMS'],
-    imageUrl: 'https://picsum.photos/seed/crm/600/400',
+    // TODO: Add your project images to a local folder (e.g., /images) and update these paths.
+    imageUrl: '/images/project-crm.webp',
     sourceUrl: 'https://github.com/your-username/crm-project',
   },
   {
     title: 'In-House ERP System',
     description: 'Developed and maintained a large-scale ERP system supporting over 200+ users across 6 different companies. Implemented 50+ new modules and reports to improve user experience and productivity.',
     tags: ['PHP', 'Laravel', 'ERP', 'MySQL', 'JavaScript'],
-    imageUrl: 'https://picsum.photos/seed/erp/600/400',
+    // TODO: Add your project images to a local folder (e.g., /images) and update these paths.
+    imageUrl: '/images/project-erp.webp',
     sourceUrl: 'https://github.com/your-username/erp-project',
   },
   {
     title: 'E-Health Application',
     description: 'Developed an e-health application for a controlled trial, serving over 300 participants. Designed REST APIs for a hybrid mobile application and implemented logic for analyzing user data.',
     tags: ['Laravel', 'PHP', 'REST API', 'MySQL', 'Solo Developer'],
-    imageUrl: 'https://picsum.photos/seed/health/600/400',
+    // TODO: Add your project images to a local folder (e.g., /images) and update these paths.
+    imageUrl: '/images/project-ehealth.webp',
     sourceUrl: 'https://github.com/your-username/ehealth-project',
   },
 ];
