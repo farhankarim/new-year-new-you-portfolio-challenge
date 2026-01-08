@@ -4,11 +4,14 @@ import { GoogleGenAI, Chat } from '@google/genai';
 import MarkdownIt from 'markdown-it';
 import { ChatMessage } from '../types';
 
+const MESSAGE_LIMIT = 5; // The maximum number of messages a user can send per session.
+
 const AIAssistant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [messageCount, setMessageCount] = useState(0);
 
   const chatRef = useRef<Chat | null>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
@@ -66,7 +69,10 @@ When answering, adhere to these rules:
 
   useEffect(() => {
     initializeChat();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Retrieve the message count from session storage on component mount
+    const storedCount = sessionStorage.getItem('messageCount');
+    setMessageCount(storedCount ? parseInt(storedCount, 10) : 0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -75,8 +81,10 @@ When answering, adhere to these rules:
     }
   }, [messages]);
 
+  const isLimitReached = messageCount >= MESSAGE_LIMIT;
+
   const sendMessage = async () => {
-    if (isLoading || !input.trim() || !chatRef.current) return;
+    if (isLoading || !input.trim() || !chatRef.current || isLimitReached) return;
 
     const userMessage: ChatMessage = {
       role: 'user',
@@ -84,6 +92,12 @@ When answering, adhere to these rules:
       timestamp: Date.now()
     };
     setMessages(prev => [...prev, userMessage]);
+
+    // Increment message count and save to session storage
+    const newCount = messageCount + 1;
+    setMessageCount(newCount);
+    sessionStorage.setItem('messageCount', newCount.toString());
+    
     setInput('');
     setIsLoading(true);
     setError(null);
@@ -103,7 +117,8 @@ When answering, adhere to these rules:
         });
       }
 
-    } catch (e: any) {
+    } catch (e: any)
+      {
       console.error("Error sending message:", e);
       setError("Sorry, something went wrong while getting a response.");
       setMessages(prev => [...prev, { role: 'model', parts: [{ text: 'My apologies, I seem to be having some trouble connecting. Please try again later.' }], timestamp: Date.now() }]);
@@ -118,7 +133,7 @@ When answering, adhere to these rules:
         Chat with my AI Assistant
       </h2>
       <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-        This interactive assistant is powered by the Gemini API and has been trained on my CV. Ask it about my work and experience!
+        This interactive assistant is powered by the Gemini API and has been trained on my CV. Ask it about my work and experience! (Session limit: 5 messages)
       </p>
 
       <div className="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl shadow-indigo-500/10 flex flex-col h-[600px]">
@@ -151,19 +166,26 @@ When answering, adhere to these rules:
            {error && <p className="text-red-400 text-sm text-center">{error}</p>}
         </div>
         <div className="p-4 border-t border-gray-700">
+          {isLimitReached && (
+              <div className="text-center pb-2">
+                  <p className="text-yellow-500 text-sm">
+                      You've reached the 5-message limit. Refresh to start a new session.
+                  </p>
+              </div>
+          )}
           <div className="flex items-center bg-gray-700 rounded-lg">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-              placeholder="Ask about his experience with Laravel..."
+              placeholder={isLimitReached ? "Message limit reached" : "Ask about his experience with Laravel..."}
               className="flex-1 bg-transparent p-3 text-white placeholder-gray-400 focus:outline-none"
-              disabled={isLoading}
+              disabled={isLoading || isLimitReached}
             />
             <button
               onClick={sendMessage}
-              disabled={isLoading || !input.trim()}
+              disabled={isLoading || !input.trim() || isLimitReached}
               className="p-3 text-indigo-400 disabled:text-gray-500 hover:text-indigo-300 disabled:cursor-not-allowed transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
