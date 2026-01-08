@@ -33,6 +33,9 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
+              aria-label="Open main menu"
             >
               <svg
                 className="w-6 h-6"
@@ -40,6 +43,7 @@ const Header: React.FC = () => {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
               >
                 {isOpen ? (
                   <path
@@ -61,7 +65,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         {isOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4" id="mobile-menu">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a

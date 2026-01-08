@@ -141,7 +141,7 @@ When answering, adhere to these rules:
           {messages.map((msg, index) => (
             <div key={index} className={`flex items-start gap-3 ${msg.role === 'user' ? 'justify-end' : ''}`}>
               {msg.role === 'model' && (
-                <div className="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm">AI</div>
+                <div className="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AI</div>
               )}
               <div
                 className={`max-w-md p-3 rounded-lg ${msg.role === 'user'
@@ -155,7 +155,7 @@ When answering, adhere to these rules:
           ))}
           {isLoading && (
              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm">AI</div>
+                <div className="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AI</div>
                  <div className="bg-gray-700 p-3 rounded-lg flex items-center space-x-2">
                     <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse delay-75"></span>
                     <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse delay-150"></span>
@@ -163,12 +163,12 @@ When answering, adhere to these rules:
                  </div>
             </div>
           )}
-           {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+           {error && <p className="text-red-400 text-sm text-center" role="alert">{error}</p>}
         </div>
         <div className="p-4 border-t border-gray-700">
           {isLimitReached && (
               <div className="text-center pb-2">
-                  <p className="text-yellow-500 text-sm">
+                  <p className="text-yellow-500 text-sm" role="status">
                       You've reached the 5-message limit. Refresh to start a new session.
                   </p>
               </div>
@@ -182,13 +182,15 @@ When answering, adhere to these rules:
               placeholder={isLimitReached ? "Message limit reached" : "Ask about his experience with Laravel..."}
               className="flex-1 bg-transparent p-3 text-white placeholder-gray-400 focus:outline-none"
               disabled={isLoading || isLimitReached}
+              aria-label="Chat message input"
             />
             <button
               onClick={sendMessage}
               disabled={isLoading || !input.trim() || isLimitReached}
               className="p-3 text-indigo-400 disabled:text-gray-500 hover:text-indigo-300 disabled:cursor-not-allowed transition-colors"
+              aria-label="Send message"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
               </svg>
             </button>

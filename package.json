@@ -17,6 +17,6 @@
     "typescript": "^5.5.3"
   },
   "scripts": {
-    "build": "mkdir -p dist && cp index.html dist/index.html && esbuild index.tsx --bundle --outfile=dist/index.js --jsx=automatic --define:process.env.API_KEY='\"$API_KEY\"'"
+    "build": "mkdir -p dist && cp index.html dist/index.html && esbuild index.tsx --bundle --minify --outfile=dist/index.js --jsx=automatic --define:process.env.API_KEY='\"$API_KEY\"'"
   }
 }

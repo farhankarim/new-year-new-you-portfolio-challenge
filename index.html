@@ -2,13 +2,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-g" />
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
     <title>Farhan Karim | Full-Stack Software Engineer</title>
+    <meta name="description" content="The portfolio of Farhan Karim, a full-stack software engineer with 3+ years of experience specializing in the Laravel/PHP ecosystem and building enterprise solutions." />
+    <meta name="keywords" content="Farhan Karim, Full-Stack Engineer, Software Developer, Laravel, PHP, React, JavaScript, Portfolio" />
+    <meta name="author" content="Farhan Karim" />
+    <link rel="canonical" href="https://your-domain.com/" /> <!-- TODO: Replace with actual domain -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/" /> <!-- TODO: Replace with actual domain -->
+    <meta property="og:title" content="Farhan Karim | Full-Stack Software Engineer" />
+    <meta property="og:description" content="Portfolio of a full-stack software engineer specializing in Laravel, PHP, and React." />
+    <meta property="og:image" content="https://your-domain.com/og-image.png" /> <!-- TODO: Replace with actual image URL -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://your-domain.com/" /> <!-- TODO: Replace with actual domain -->
+    <meta property="twitter:title" content="Farhan Karim | Full-Stack Software Engineer" />
+    <meta property="twitter:description" content="Portfolio of a full-stack software engineer specializing in Laravel, PHP, and React." />
+    <meta property="twitter:image" content="https://your-domain.com/og-image.png" /> <!-- TODO: Replace with actual image URL -->
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#111827" />
+    
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       body {
         font-family: 'Inter', sans-serif;
         scroll-behavior: smooth;
@@ -19,10 +47,7 @@
       .ai-chat-bubble p {
         margin: 0;
       }
-      .ai-chat-bubble ul {
-        list-style-position: inside;
-        padding-left: 1rem;
-      }
+      .ai-chat-bubble ul,
       .ai-chat-bubble ol {
         list-style-position: inside;
         padding-left: 1rem;
@@ -38,6 +63,30 @@
         font-family: monospace;
       }
     </style>
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Farhan Karim",
+      "url": "https://your-domain.com/",
+      "jobTitle": "Full-Stack Software Engineer",
+      "knowsAbout": ["PHP", "Laravel", "React.js", "JavaScript", "Python", "Tailwind CSS", "MySQL", "Docker", "CRM", "CMS", "ERP"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Muhmmad Ali Jinnah University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Bahria University"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/farhan-karim/"
+      ]
+    }
+    </script>
 <script type="importmap">
 {
   "imports": {
@@ -51,7 +100,8 @@
 </script>
 </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script src="/index.js"></script>
+    <script defer src="/index.js"></script>
   </body>
 </html>

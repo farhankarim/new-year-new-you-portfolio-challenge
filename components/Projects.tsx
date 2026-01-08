@@ -5,7 +5,14 @@ import { Project } from '../types';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div className="bg-gray-800 rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
-    <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+    <img 
+      src={project.imageUrl} 
+      alt={project.title} 
+      className="w-full h-48 object-cover group-hover:opacity-80 transition-opacity"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
     <div className="p-6">
       <h3 className="text-xl font-bold mb-2">{project.title}</h3>
       <p className="text-gray-400 mb-4 text-sm">{project.description}</p>

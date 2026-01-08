@@ -30,20 +30,20 @@ export const PROJECTS: Project[] = [
     description: 'Engineered and customized complex CRM and CMS modules serving premier banks in Pakistan. Collaborated with cross-functional teams to gather requirements and ensure smooth system integration.',
     tags: ['PHP', 'Laravel', 'JavaScript', 'CRM', 'CMS'],
     imageUrl: 'https://picsum.photos/seed/crm/600/400',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/your-username/crm-project',
   },
   {
     title: 'In-House ERP System',
     description: 'Developed and maintained a large-scale ERP system supporting over 200+ users across 6 different companies. Implemented 50+ new modules and reports to improve user experience and productivity.',
     tags: ['PHP', 'Laravel', 'ERP', 'MySQL', 'JavaScript'],
     imageUrl: 'https://picsum.photos/seed/erp/600/400',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/your-username/erp-project',
   },
   {
     title: 'E-Health Application',
     description: 'Developed an e-health application for a controlled trial, serving over 300 participants. Designed REST APIs for a hybrid mobile application and implemented logic for analyzing user data.',
     tags: ['Laravel', 'PHP', 'REST API', 'MySQL', 'Solo Developer'],
     imageUrl: 'https://picsum.photos/seed/health/600/400',
-    sourceUrl: '#',
+    sourceUrl: 'https://github.com/your-username/ehealth-project',
   },
 ];

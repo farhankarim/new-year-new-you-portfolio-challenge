@@ -1,4 +1,4 @@
-// Fix: Import `ReactElement` to resolve the "Cannot find namespace 'JSX'" error.
+
 import type { ReactElement } from 'react';
 
 export interface Skill {
@@ -7,7 +7,7 @@ export interface Skill {
 }
 
 export interface Project {
-  title: string;
+  title:string;
   description: string;
   tags: string[];
   imageUrl: string;
