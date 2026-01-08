@@ -1,0 +1,5 @@
+{
+  "name": "AI-Powered Developer Portfolio",
+  "description": "A modern, interactive portfolio for a senior frontend developer, featuring an AI assistant powered by the Gemini API to answer questions about skills and projects.",
+  "requestFramePermissions": []
+}
