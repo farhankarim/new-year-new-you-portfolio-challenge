@@ -25,7 +25,7 @@ const Skills: React.FC = () => {
       },
       {
         rootMargin: '0px',
-        threshold: 0.1,
+        threshold: 0.2,
       }
     );
 
@@ -46,11 +46,15 @@ const Skills: React.FC = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         My Tech Stack
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 max-w-5xl mx-auto">
         {SKILLS.map((skill, index) => (
           <div
             key={skill.name}
-            className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            className={`transition-all duration-500 ease-out ${
+              isVisible
+                ? 'opacity-100 translate-y-0 scale-100 rotate-0'
+                : 'opacity-0 translate-y-5 scale-95 -rotate-3'
+            }`}
             style={{ transitionDelay: `${index * 50}ms` }}
           >
             <SkillCard skill={skill} />

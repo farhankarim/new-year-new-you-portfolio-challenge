@@ -4,6 +4,20 @@ import React, { useState } from 'react';
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href')?.substring(1);
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
@@ -15,7 +29,10 @@ const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-gray-900/70 backdrop-blur-md">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold text-white">
+          <a href="#" className="text-2xl font-bold text-white" onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}>
             Farhan <span className="text-indigo-400">Karim</span>
           </a>
           <nav className="hidden md:flex space-x-8">
@@ -23,6 +40,7 @@ const Header: React.FC = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={handleNavClick}
                 className="text-gray-300 hover:text-indigo-400 transition-colors duration-300"
               >
                 {link.label}
@@ -71,7 +89,7 @@ const Header: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleNavClick}
                   className="text-gray-300 hover:text-indigo-400 transition-colors duration-300"
                 >
                   {link.label}

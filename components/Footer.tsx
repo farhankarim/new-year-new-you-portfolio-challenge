@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Farhan Karim. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's Github Profile" className="text-gray-400 hover:text-indigo-400 transition-colors">
+            <a href="https://github.com/farhankarim" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's Github Profile" className="text-gray-400 hover:text-indigo-400 transition-colors">
               <GithubIcon />
             </a>
             <a href="https://www.linkedin.com/in/farhan-karim/" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's LinkedIn Profile" className="text-gray-400 hover:text-indigo-400 transition-colors">
