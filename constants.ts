@@ -1,7 +1,7 @@
 
 import { Project, Skill } from './types.ts';
 
-// Icons for skills
+// Icons for skills as SVG strings
 const ReactIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-400"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.828-12.828a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zm5.656 0a1 1 0 0 1 1.414 1.414L14.828 12l1.414 1.414a1 1 0 0 1-1.414 1.414L12 12.828l-2.828 2.828a1 1 0 0 1-1.414-1.414L10.586 12 9.172 10.586a1 1 0 0 1 1.414-1.414L12 10.586l2.828-2.828zM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>`;
 const PHPIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-indigo-400"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1 5v10h2V7h-2zm-4 2v2h2v6H7v-2H5v2H3V9h2v2h2V9h2zm8 0v8h-2v-2h-2v2h-2V9h6zm-2 2h-2v2h2v-2z" /></svg>`;
 const LaravelIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-red-500"><path d="M21.92,5.54L13,10.23V2.85L17.46,0L21.92,5.54M12.05,2.85V10.23L3.12,5.54L7.59,0L12.05,2.85M11.12,11.07L2,6.38V12.1L6.46,15L11.12,11.07M12.95,11.07L17.6,15L22.07,12.1V6.38L12.95,11.07M12.05,20.59L7.59,24L3.12,18.46L7.78,15.11L12.05,20.59M12.95,20.59L17.22,15.11L21.92,18.46L17.46,24L12.95,20.59Z" /></svg>`;

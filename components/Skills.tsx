@@ -5,7 +5,8 @@ import { Skill } from '../types.ts';
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
   <div className="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-gray-700 hover:scale-105">
-    {skill.icon}
+    {/* FIX: Use dangerouslySetInnerHTML to render the SVG string as HTML */}
+    <div dangerouslySetInnerHTML={{ __html: skill.icon }} />
     <p className="mt-4 font-semibold text-gray-200">{skill.name}</p>
   </div>
 );

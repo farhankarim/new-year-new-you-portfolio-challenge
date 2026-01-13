@@ -1,55 +1,45 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
     <title>Farhan Karim | Full-Stack Software Engineer</title>
     <meta name="description" content="The portfolio of Farhan Karim, a full-stack software engineer with 3+ years of experience specializing in the Laravel/PHP ecosystem and building enterprise solutions." />
-    <meta name="keywords" content="Farhan Karim, Full-Stack Engineer, Software Developer, Laravel, PHP, React, JavaScript, Portfolio" />
+    <meta name="keywords" content="Farhan Karim, Full-Stack Engineer, Software Developer, Laravel, PHP, JavaScript, Portfolio" />
     <meta name="author" content="Farhan Karim" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#111827" />
-    
+
     <!-- Preconnect to required origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Optimized Font Loading (non-render-blocking) -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+    <!-- Optimized Font Loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Embedded CSS -->
     <style>
       body {
         scroll-behavior: smooth;
+        background-color: #030712; /* Corresponds to tailwind gray-950 */
       }
       .glow {
-        /* Matched to indigo-500 */
-        box-shadow: 0 0 5px #6366f1, 0 0 10px #6366f1, 0 0 15px #6366f1;
+        box-shadow: 0 0 5px #6366f1, 0 0 10px #6366f1, 0 0 15px #6366f1; /* Corresponds to indigo-500 */
       }
-      .ai-chat-bubble p {
-        margin: 0;
-      }
-      .ai-chat-bubble ul,
-      .ai-chat-bubble ol {
-        list-style-position: inside;
-        padding-left: 1rem;
-      }
-      .ai-chat-bubble pre {
-        background-color: #1e1e1e;
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        overflow-x: auto;
-        font-size: 0.875rem;
-      }
-      .ai-chat-bubble code {
-        font-family: monospace;
-      }
+      /* Styles for markdown-rendered content in the AI chat */
+      .ai-chat-bubble p { margin: 0; }
+      .ai-chat-bubble ul, .ai-chat-bubble ol { list-style-position: inside; padding-left: 1rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+      .ai-chat-bubble pre { background-color: #1f2937; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.875rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+      .ai-chat-bubble code { font-family: monospace; }
+      .ai-chat-bubble a { color: #818cf8; text-decoration: underline; }
     </style>
     
     <!-- JSON-LD for SEO -->
@@ -60,37 +50,446 @@
       "url": "https://your-domain.com/",
       "jobTitle": "Full-Stack Software Engineer",
       "knowsAbout": ["PHP", "Laravel", "React.js", "JavaScript", "Python", "Tailwind CSS", "MySQL", "Docker", "CRM", "CMS", "ERP"],
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "Muhmmad Ali Jinnah University"
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Bahria University"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/farhan-karim/"
-      ]
+      "alumniOf": [{"@type": "EducationalOrganization", "name": "Muhmmad Ali Jinnah University"}, {"@type": "EducationalOrganization", "name": "Bahria University"}],
+      "sameAs": ["https://www.linkedin.com/in/farhan-karim/"]
     }
     </script>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/?minify",
-    "react": "https://esm.sh/react@^19.2.3?minify",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3?minify",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/?minify",
-    "@google/genai": "https://esm.sh/@google/genai@^1.35.0?minify",
-    "markdown-it": "https://esm.sh/markdown-it@^14.1.0?minify"
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "markdown-it": "https://esm.sh/markdown-it@^14.1.0",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3"
   }
 }
 </script>
 </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
-  </body>
+<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
+    <!-- Parallax background orbs -->
+    <div id="parallax-bg" class="fixed inset-0 z-0 overflow-hidden bg-gray-950" aria-hidden="true">
+        <div class="parallax-orb absolute w-96 h-96 bg-indigo-500 rounded-full opacity-20 blur-2xl" style="top: 10vh; left: 15vw;"></div>
+        <div class="parallax-orb absolute w-[30rem] h-[30rem] bg-teal-500 rounded-full opacity-20 blur-2xl" style="top: 50vh; right: 10vw;"></div>
+        <div class="parallax-orb absolute w-80 h-80 bg-red-500 rounded-full opacity-10 blur-2xl" style="top: 120vh; left: 30vw;"></div>
+        <div class="parallax-orb absolute w-[25rem] h-[25rem] bg-indigo-400 rounded-full opacity-20 blur-2xl" style="top: 180vh; right: 25vw;"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Header & Navigation -->
+        <header id="header" class="sticky top-0 z-50 bg-gray-900/70 backdrop-blur-md">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <a href="#" class="nav-link text-2xl font-bold text-white">
+                        Farhan <span class="text-indigo-400">Karim</span>
+                    </a>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                        <a href="#ai-assistant" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">AI Assistant</a>
+                    </nav>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-300 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path id="mobile-menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                                <path id="mobile-menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <nav class="flex flex-col space-y-4">
+                         <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">About</a>
+                         <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Skills</a>
+                         <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                         <a href="#ai-assistant" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">AI Assistant</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 md:px-8 py-8 md:py-16">
+            <!-- Hero Section -->
+            <section id="about" class="py-20 md:py-32 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                        <span class="block">Hi, I'm Farhan Karim.</span>
+                        <span class="block text-indigo-400">A Full-Stack Software Engineer.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                        With 3+ years of experience specializing in the Laravel/PHP ecosystem, I design and maintain robust enterprise solutions like CRM, CMS, and ERP systems, translating complex requirements into high-value features.
+                    </p>
+                    <div><a href="#ai-assistant" class="nav-link inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105">Chat with my AI Assistant</a></div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">My Tech Stack</h2>
+                <div id="skills-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 max-w-5xl mx-auto"></div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
+                <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </section>
+
+            <!-- AI Assistant Section -->
+            <section id="ai-assistant" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Chat with my AI Assistant</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">This interactive assistant is powered by the Gemini API and has been trained on my CV. Ask it about my work and experience! (Session limit: 5 messages)</p>
+                <div class="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl shadow-indigo-500/10 flex flex-col h-[600px]">
+                    <div id="chat-container" class="flex-1 p-6 overflow-y-auto space-y-4"></div>
+                    <div class="p-4 border-t border-gray-700">
+                        <div id="message-limit-warning" class="text-center pb-2 hidden">
+                            <p class="text-yellow-500 text-sm" role="status">You've reached the 5-message limit. Refresh to start a new session.</p>
+                        </div>
+                        <div class="flex items-center bg-gray-700 rounded-lg">
+                            <input id="chat-input" type="text" placeholder="Ask about his experience with Laravel..." class="flex-1 bg-transparent p-3 text-white placeholder-gray-400 focus:outline-none" aria-label="Chat message input">
+                            <button id="chat-send-button" class="p-3 text-indigo-400 disabled:text-gray-500 hover:text-indigo-300 disabled:cursor-not-allowed transition-colors" aria-label="Send message">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4 md:px-8 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2024 Farhan Karim. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="https://github.com/farhankarim" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's Github Profile" class="text-gray-400 hover:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path></svg></a>
+                        <a href="https://www.linkedin.com/in/farhan-karim/" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's LinkedIn Profile" class="text-gray-400 hover:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"></circle></svg></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
+        <div id="modal-content" class="bg-gray-800 rounded-xl shadow-2xl shadow-indigo-500/20 p-6 w-full max-w-sm m-4 text-center transform transition-all duration-300">
+            <div class="flex justify-end">
+                <button id="modal-close-button" class="text-gray-400 hover:text-white" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="mt-[-1.5rem] px-4 pb-4">
+                <h3 class="text-2xl font-bold text-white mb-4">Coming Soon!</h3>
+                <p class="text-gray-300">This feature is currently under development. The project links will be available shortly. Thank you for your patience!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded JavaScript Application -->
+    <script type="module">
+        // Import dependencies from CDN
+        import { GoogleGenAI } from 'https://esm.sh/@google/genai@^1.34.0';
+        import MarkdownIt from 'https://esm.sh/markdown-it@^14.1.0';
+
+        // --- CONSTANTS ---
+        const MESSAGE_LIMIT = 5;
+
+        // Skill Icons (SVG Strings)
+        const ReactIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-400"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.828-12.828a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zm5.656 0a1 1 0 0 1 1.414 1.414L14.828 12l1.414 1.414a1 1 0 0 1-1.414 1.414L12 12.828l-2.828 2.828a1 1 0 0 1-1.414-1.414L10.586 12 9.172 10.586a1 1 0 0 1 1.414-1.414L12 10.586l2.828-2.828zM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>`;
+        const PHPIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-indigo-400"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1 5v10h2V7h-2zm-4 2v2h2v6H7v-2H5v2H3V9h2v2h2V9h2zm8 0v8h-2v-2h-2v2h-2V9h6zm-2 2h-2v2h2v-2z" /></svg>`;
+        const LaravelIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-red-500"><path d="M21.92,5.54L13,10.23V2.85L17.46,0L21.92,5.54M12.05,2.85V10.23L3.12,5.54L7.59,0L12.05,2.85M11.12,11.07L2,6.38V12.1L6.46,15L11.12,11.07M12.95,11.07L17.6,15L22.07,12.1V6.38L12.95,11.07M12.05,20.59L7.59,24L3.12,18.46L7.78,15.11L12.05,20.59M12.95,20.59L17.22,15.11L21.92,18.46L17.46,24L12.95,20.59Z" /></svg>`;
+        const JavaScriptIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-yellow-400"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.5 17.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm2.5-5.5H7v-2h10v2z" /></svg>`;
+        const PythonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-500"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-3 7v2h2v2H9v2h4v-2h-2v-2h2V9H9zm6 0v6h2V9h-2z" /></svg>`;
+        const TailwindIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-teal-400"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 18c4.411 0 8-3.589 8-8s-3.589-8-8-8-8 3.589-8 8 3.589 8 8 8zm-4.5-8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5S9.828 13 9 13s-1.5-.672-1.5-1.5zm6 0c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5S15.828 13 15 13s-1.5-.672-1.5-1.5z"/></svg>`;
+        const MySQLIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-600"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 3c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 7c-3.866 0-7 2.239-7 5v1c0 .552.448 1 1 1h12c.552 0 1-.448 1-1v-1c0-2.761-3.134-5-7-5z" /></svg>`;
+        const DockerIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-500"><path d="M21.99,9.5C21.94,9.22 21.73,9 21.46,9H17.5V5.5C17.5,5.22 17.28,5 17,5H7.5V2.5C7.5,2.22 7.28,2 7,2H2.5C2.22,2 2,2.22 2,2.5V14.5C2,14.78 2.22,15 2.5,15H7V18.5C7,18.78 7.22,19 7.5,19H21.5C21.78,19 22,18.78 22,18.5V10C22,9.82 21.99,9.65 21.99,9.5M6.5,13.5H3.5V10.5H6.5V13.5M6.5,9.5H3.5V6.5H6.5V9.5M6.5,5.5H3.5V3H6.5V5.5M10.5,17.5H8V14.5H10.5V17.5M10.5,13.5H8V10.5H10.5V13.5M10.5,9.5H8V6.5H10.5V9.5M14.5,17.5H11.5V14.5H14.5V17.5M14.5,13.5H11.5V10.5H14.5V13.5M14.5,9.5H11.5V6.5H14.5V9.5M16.5,8.5V6H15.5V8.5H16.5M20.5,17.5H15.5V14.5H20.5V17.5M20.5,13.5H15.5V10.5H20.5V13.5Z" /></svg>`;
+
+        const SKILLS = [
+          { name: 'PHP', icon: PHPIcon },
+          { name: 'Laravel', icon: LaravelIcon },
+          { name: 'React.js', icon: ReactIcon },
+          { name: 'JavaScript', icon: JavaScriptIcon },
+          { name: 'Python', icon: PythonIcon },
+          { name: 'Tailwind CSS', icon: TailwindIcon },
+          { name: 'MySQL', icon: MySQLIcon },
+          { name: 'Docker', icon: DockerIcon },
+        ];
+
+        const PROJECTS = [
+          {
+            title: 'CRM/CMS for Premier Banks',
+            description: 'Engineered and customized complex CRM and CMS modules serving premier banks in Pakistan. Collaborated with cross-functional teams to gather requirements and ensure smooth system integration.',
+            tags: ['PHP', 'Laravel', 'JavaScript', 'CRM', 'CMS'],
+            imageUrl: '/public/images/1.jpg',
+            sourceUrl: 'https://github.com/farhankarim',
+          },
+          {
+            title: 'In-House ERP System',
+            description: 'Developed and maintained a large-scale ERP system supporting over 200+ users across 6 different companies. Implemented 50+ new modules and reports to improve user experience and productivity.',
+            tags: ['PHP', 'Laravel', 'ERP', 'MySQL', 'JavaScript'],
+            imageUrl: '/public/images/2.jpg',
+            sourceUrl: 'https://github.com/farhankarim',
+          },
+          {
+            title: 'E-Health Application',
+            description: 'Developed an e-health application for a controlled trial, serving over 300 participants. Designed REST APIs for a hybrid mobile application and implemented logic for analyzing user data.',
+            tags: ['Laravel', 'PHP', 'REST API', 'MySQL', 'Solo Developer'],
+            imageUrl: '/public/images/3.jpg',
+            sourceUrl: 'https://github.com/farhankarim',
+          },
+        ];
+
+        // --- APPLICATION STATE ---
+        let chat = null;
+        let messages = [];
+        let isLoading = false;
+        let messageCount = 0;
+        const md = new MarkdownIt();
+
+        // --- DOM ELEMENT SELECTORS ---
+        const DOMElements = {
+            parallaxOrbs: () => document.querySelectorAll('.parallax-orb'),
+            mobileMenu: document.getElementById('mobile-menu'),
+            mobileMenuBtn: document.getElementById('mobile-menu-button'),
+            mobileMenuOpenIcon: document.getElementById('mobile-menu-open-icon'),
+            mobileMenuCloseIcon: document.getElementById('mobile-menu-close-icon'),
+            navLinks: () => document.querySelectorAll('.nav-link'),
+            skillsGrid: document.getElementById('skills-grid'),
+            projectsGrid: document.getElementById('projects-grid'),
+            modal: document.getElementById('modal'),
+            modalCloseBtn: document.getElementById('modal-close-button'),
+            chatContainer: document.getElementById('chat-container'),
+            chatInput: document.getElementById('chat-input'),
+            chatSendBtn: document.getElementById('chat-send-button'),
+            messageLimitWarning: document.getElementById('message-limit-warning'),
+        };
+
+        // --- RENDER FUNCTIONS ---
+        const renderSkills = () => {
+            if (!DOMElements.skillsGrid) return;
+            DOMElements.skillsGrid.innerHTML = SKILLS.map((skill, index) => `
+                <div class="skill-card opacity-0 -translate-y-5 scale-95 -rotate-3 transition-all duration-500 ease-out" data-animate data-index="${index}">
+                    <div class="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center text-center h-full hover:bg-gray-700 hover:scale-105 transition-transform">
+                        ${skill.icon}
+                        <p class="mt-4 font-semibold text-gray-200">${skill.name}</p>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        const renderProjects = () => {
+            if (!DOMElements.projectsGrid) return;
+            DOMElements.projectsGrid.innerHTML = PROJECTS.map((project, index) => `
+                <div class="project-card opacity-0 translate-y-8 scale-95 -rotate-2 transition-all duration-500 ease-out" data-animate data-index="${index}">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group h-full flex flex-col hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-2 transition-all">
+                        <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" width="600" height="400" loading="lazy" decoding="async"/>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-gray-400 mb-4 text-sm flex-grow">${project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${project.tags.map(tag => `<span class="bg-indigo-900/50 text-indigo-300 text-xs font-semibold px-2.5 py-1 rounded-full">${tag}</span>`).join('')}
+                            </div>
+                            <div class="flex items-center space-x-4 mt-auto">
+                                <a href="#" data-modal-trigger class="text-indigo-400 hover:text-indigo-300 font-semibold">Live Demo</a>
+                                <a href="${project.sourceUrl}" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white font-semibold">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        const renderMessages = () => {
+            const container = DOMElements.chatContainer;
+            if (!container) return;
+            container.innerHTML = messages.map(msg => `
+                <div class="flex items-start gap-3 ${msg.role === 'user' ? 'justify-end' : ''}">
+                    ${msg.role === 'model' ? `<div class="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AI</div>` : ''}
+                    <div class="max-w-md p-3 rounded-lg ${msg.role === 'user' ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-200'}">
+                        <div class="prose prose-invert prose-sm ai-chat-bubble">${md.render(msg.parts[0].text)}</div>
+                    </div>
+                </div>
+            `).join('');
+            if (isLoading) {
+                container.innerHTML += `
+                    <div class="flex items-start gap-3" id="loading-indicator">
+                        <div class="w-8 h-8 rounded-full bg-indigo-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AI</div>
+                        <div class="bg-gray-700 p-3 rounded-lg flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 75ms;"></span>
+                            <span class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 150ms;"></span>
+                            <span class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 300ms;"></span>
+                        </div>
+                    </div>`;
+            }
+            container.scrollTop = container.scrollHeight;
+        };
+
+        // --- EVENT LISTENERS & UI LOGIC ---
+        const setupHeaderListeners = () => {
+            const { mobileMenu, mobileMenuBtn, mobileMenuOpenIcon, mobileMenuCloseIcon } = DOMElements;
+            mobileMenuBtn?.addEventListener('click', () => {
+                const isOpen = !mobileMenu?.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+                mobileMenuOpenIcon?.classList.toggle('hidden', isOpen);
+                mobileMenuCloseIcon?.classList.toggle('hidden', !isOpen);
+            });
+            DOMElements.navLinks().forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href')?.substring(1);
+                    if (targetId) {
+                        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    if (!mobileMenu?.classList.contains('hidden')) mobileMenuBtn?.click();
+                });
+            });
+        };
+
+        const setupParallaxListeners = () => {
+            let mousePosition = { x: 0, y: 0 };
+            window.addEventListener('mousemove', e => { mousePosition = { x: e.clientX, y: e.clientY }; });
+            const updateParallax = () => {
+                const scrollY = window.scrollY;
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+                const mouseX = (mousePosition.x - centerX) / 50;
+                const mouseY = (mousePosition.y - centerY) / 50;
+                DOMElements.parallaxOrbs().forEach((orb, index) => {
+                    const scrollFactor = [0.3, 0.5, 0.7, 0.4][index] || 0.5;
+                    const mouseFactorX = [1, -0.8, 0.5, -0.3][index] || 0;
+                    const mouseFactorY = [-1, 0.8, -0.5, 0.3][index] || 0;
+                    orb.style.transform = `translate3d(${mouseX * mouseFactorX}px, ${mouseY * mouseFactorY + scrollY * scrollFactor}px, 0)`;
+                });
+                requestAnimationFrame(updateParallax);
+            };
+            requestAnimationFrame(updateParallax);
+        };
+
+        const setupIntersectionObservers = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const delay = (parseInt(el.dataset.index || '0') * 100);
+                        setTimeout(() => {
+                            el.classList.remove('opacity-0', 'translate-y-8', 'scale-95', '-rotate-2', '-translate-y-5', '-rotate-3');
+                        }, delay);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+        };
+
+        const setupModalListeners = () => {
+            const { modal, modalCloseBtn } = DOMElements;
+            document.addEventListener('click', e => {
+                if (e.target.closest('[data-modal-trigger]')) {
+                    e.preventDefault();
+                    modal?.classList.remove('hidden');
+                }
+            });
+            const closeModal = () => modal?.classList.add('hidden');
+            modalCloseBtn?.addEventListener('click', closeModal);
+            modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal?.classList.contains('hidden')) closeModal(); });
+        };
+
+        // --- AI ASSISTANT LOGIC ---
+        const updateChatUIState = () => {
+            const { chatInput, chatSendBtn, messageLimitWarning } = DOMElements;
+            const isLimitReached = messageCount >= MESSAGE_LIMIT;
+            if (chatInput) {
+                chatInput.disabled = isLoading || isLimitReached;
+                chatInput.placeholder = isLimitReached ? "Message limit reached" : "Ask about his experience with Laravel...";
+            }
+            if (chatSendBtn) chatSendBtn.disabled = isLoading || !chatInput.value.trim() || isLimitReached;
+            messageLimitWarning?.classList.toggle('hidden', !isLimitReached);
+        };
+
+        const sendMessage = async () => {
+            const { chatInput } = DOMElements;
+            if (!chatInput || isLoading || !chatInput.value.trim() || !chat || messageCount >= MESSAGE_LIMIT) return;
+            const userInput = chatInput.value;
+            messages.push({ role: 'user', parts: [{ text: userInput }] });
+            messageCount++;
+            sessionStorage.setItem('messageCount', String(messageCount));
+            chatInput.value = '';
+            isLoading = true;
+            renderMessages();
+            updateChatUIState();
+            try {
+                const stream = await chat.sendMessageStream({ message: userInput });
+                let modelResponse = '';
+                messages.push({ role: 'model', parts: [{ text: '' }] });
+                const modelMessageIndex = messages.length - 1;
+                for await (const chunk of stream) {
+                    modelResponse += chunk.text;
+                    messages[modelMessageIndex].parts[0].text = modelResponse;
+                }
+            } catch (e) {
+                console.error("Error sending message:", e);
+                messages.push({ role: 'model', parts: [{ text: 'My apologies, I seem to be having some trouble connecting. Please try again later.' }] });
+            } finally {
+                isLoading = false;
+                renderMessages();
+                updateChatUIState();
+            }
+        };
+
+        const setupAIAssistant = () => {
+            // This is a browser environment, so process.env.API_KEY must be injected by the server or a script.
+            // If it's not available, the chat will show an error.
+            const apiKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) ? process.env.API_KEY : null;
+
+            if (!apiKey) {
+                console.error("API_KEY is not available.");
+                messages = [{ role: 'model', parts: [{ text: "I'm currently offline as my configuration is incomplete. The API key is missing." }] }];
+                renderMessages();
+                return;
+            }
+            const systemInstruction = `You are Farhan Karim's AI Assistant, a helpful and professional assistant embedded in his portfolio website. Your goal is to answer questions from potential employers, recruiters, and collaborators about Farhan's skills, experience, and projects based on his CV.
+
+Here is the information about Farhan Karim:
+- **Role**: Full-Stack Software Engineer with 3+ years of experience.
+- **Specialization**: Laravel/PHP ecosystem and enterprise solutions (CRM, CMS, ERP systems).
+- **Core Skills**: PHP, Javascript, Python, Laravel/Lumen, Django, Firebase, HTML/CSS/JS, Bootstrap, Tailwind, React.js, MySQL, Oracle, PostgreSQL, SQL Server 2012, Git, Heroku, REST APIs, AJAX, XML, Postman, Docker.
+- **Work Experience**: Software Engineer at UHF Solutions (Oct 2023 - Present), Software Engineer at Wavetec (Jul 2022 - Sep 2023), Associate Faculty at Aptech (Nov 2019 - June 2022), Laravel Developer at AKDN (Apr 2019 - Jul 2019).
+- **Education**: MS in Computer Science from Muhmmad Ali Jinnah University (2021-2023), BS in Computer Science from Bahria University (2014-2018).
+
+Rules:
+1. Speak about Farhan in the third person.
+2. Keep responses concise and based strictly on the provided info.
+3. If you don't know the answer or if the question is off-topic, politely state that the information isn't available and provide Farhan's email: farhankarimcs@hotmail.com.
+4. Use markdown for formatting.
+5. Maintain a professional tone.`;
+            
+            const ai = new GoogleGenAI({ apiKey });
+            chat = ai.chats.create({ model: 'gemini-3-flash-preview', config: { systemInstruction } });
+            messageCount = parseInt(sessionStorage.getItem('messageCount') || '0', 10);
+            messages = [{ role: 'model', parts: [{ text: "Hello! I am Farhan Karim's AI assistant. How can I help you learn more about his skills and experience?" }] }];
+            renderMessages();
+            updateChatUIState();
+            DOMElements.chatSendBtn?.addEventListener('click', sendMessage);
+            DOMElements.chatInput?.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
+            DOMElements.chatInput?.addEventListener('input', updateChatUIState);
+        };
+
+        // --- APP INITIALIZATION ---
+        const init = () => {
+            renderSkills();
+            renderProjects();
+            setupHeaderListeners();
+            setupParallaxListeners();
+            setupIntersectionObservers();
+            setupModalListeners();
+            setupAIAssistant();
+        };
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
 </html>

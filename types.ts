@@ -1,9 +1,7 @@
 
-import type { ReactElement } from 'react';
-
 export interface Skill {
   name: string;
-  icon: ReactElement;
+  icon: string;
 }
 
 export interface Project {
