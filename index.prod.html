@@ -1,43 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
     <title>Farhan Karim | Full-Stack Software Engineer</title>
     <meta name="description" content="The portfolio of Farhan Karim, a full-stack software engineer with 3+ years of experience specializing in the Laravel/PHP ecosystem and building enterprise solutions." />
-    <meta name="keywords" content="Farhan Karim, Full-Stack Engineer, Software Developer, Laravel, PHP, React, JavaScript, Portfolio" />
+    <meta name="keywords" content="Farhan Karim, Full-Stack Engineer, Software Developer, Laravel, PHP, JavaScript, Portfolio" />
     <meta name="author" content="Farhan Karim" />
-    <link rel="canonical" href="https://your-domain.com/" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://your-domain.com/" />
-    <meta property="og:title" content="Farhan Karim | Full-Stack Software Engineer" />
-    <meta property="og:description" content="Portfolio of a full-stack software engineer specializing in Laravel, PHP, and React." />
-    <meta property="og:image" content="https://your-domain.com/og-image.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://your-domain.com/" />
-    <meta property="twitter:title" content="Farhan Karim | Full-Stack Software Engineer" />
-    <meta property="twitter:description" content="Portfolio of a full-stack software engineer specializing in Laravel, PHP, and React." />
-    <meta property="twitter:image" content="https://your-domain.com/og-image.png" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#111827" />
     
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://generativelanguage.googleapis.com;">
+    
     <!-- Preconnect to required origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh">
+    <link rel="preconnect" href="https://generativelanguage.googleapis.com">
 
     <!-- Optimized Font Loading (non-render-blocking) -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/styles.css" as="style">
     <link rel="stylesheet" href="/styles.css">
     
     <!-- JSON-LD for SEO -->
@@ -46,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Farhan Karim",
-      "url": "https://your-domain.com/",
+      "url": "https://ai-powered-developer-portfolio-220006275520.us-west1.run.app/",
       "jobTitle": "Full-Stack Software Engineer",
       "knowsAbout": ["PHP", "Laravel", "React.js", "JavaScript", "Python", "Tailwind CSS", "MySQL", "Docker", "CRM", "CMS", "ERP"],
       "alumniOf": [
@@ -65,9 +56,127 @@
     }
     </script>
 </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script defer src="/index.js"></script>
-  </body>
+<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
+    <!-- Parallax background orbs -->
+    <div id="parallax-bg" class="fixed inset-0 z-0 overflow-hidden bg-gray-950" aria-hidden="true">
+        <div class="parallax-orb absolute w-96 h-96 bg-indigo-500 rounded-full opacity-20 blur-2xl" style="top: 10vh; left: 15vw;"></div>
+        <div class="parallax-orb absolute w-[30rem] h-[30rem] bg-teal-500 rounded-full opacity-20 blur-2xl" style="top: 50vh; right: 10vw;"></div>
+        <div class="parallax-orb absolute w-80 h-80 bg-red-500 rounded-full opacity-10 blur-2xl" style="top: 120vh; left: 30vw;"></div>
+        <div class="parallax-orb absolute w-[25rem] h-[25rem] bg-indigo-400 rounded-full opacity-20 blur-2xl" style="top: 180vh; right: 25vw;"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Header & Navigation -->
+        <header id="header" class="sticky top-0 z-50 bg-gray-900/70 backdrop-blur-md">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <a href="#" class="nav-link text-2xl font-bold text-white">
+                        Farhan <span class="text-indigo-400">Karim</span>
+                    </a>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                        <a href="#ai-assistant" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">AI Assistant</a>
+                    </nav>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-300 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path id="mobile-menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                                <path id="mobile-menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <nav class="flex flex-col space-y-4">
+                         <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">About</a>
+                         <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Skills</a>
+                         <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                         <a href="#ai-assistant" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300">AI Assistant</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 md:px-8 py-8 md:py-16">
+            <!-- Hero Section -->
+            <section id="about" class="py-20 md:py-32 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                        <span class="block">Hi, I'm Farhan Karim.</span>
+                        <span class="block text-indigo-400">A Full-Stack Software Engineer.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                        With 3+ years of experience specializing in the Laravel/PHP ecosystem, I design and maintain robust enterprise solutions like CRM, CMS, and ERP systems, translating complex requirements into high-value features.
+                    </p>
+                    <div><a href="#ai-assistant" class="nav-link inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105">Chat with my AI Assistant</a></div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">My Tech Stack</h2>
+                <div id="skills-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 max-w-5xl mx-auto"></div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
+                <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </section>
+
+            <!-- AI Assistant Section -->
+            <section id="ai-assistant" class="py-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Chat with my AI Assistant</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">This interactive assistant is powered by the Gemini API and has been trained on my CV. Ask it about my work and experience! (Session limit: 5 messages)</p>
+                <div class="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl shadow-indigo-500/10 flex flex-col h-[600px]">
+                    <div id="chat-container" class="flex-1 p-6 overflow-y-auto space-y-4"></div>
+                    <div class="p-4 border-t border-gray-700">
+                        <div id="message-limit-warning" class="text-center pb-2 hidden">
+                            <p class="text-yellow-500 text-sm" role="status">You've reached the 5-message limit. Refresh to start a new session.</p>
+                        </div>
+                        <div class="flex items-center bg-gray-700 rounded-lg">
+                            <input id="chat-input" type="text" placeholder="Ask about his experience with Laravel..." class="flex-1 bg-transparent p-3 text-white placeholder-gray-400 focus:outline-none" aria-label="Chat message input">
+                            <button id="chat-send-button" class="p-3 text-indigo-400 disabled:text-gray-500 hover:text-indigo-300 disabled:cursor-not-allowed transition-colors" aria-label="Send message">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-4 md:px-8 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2024 Farhan Karim. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="https://github.com/farhankarim" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's Github Profile" class="text-gray-400 hover:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path></svg></a>
+                        <a href="https://www.linkedin.com/in/farhan-karim/" target="_blank" rel="noopener noreferrer" aria-label="Farhan Karim's LinkedIn Profile" class="text-gray-400 hover:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2" stroke="none" fill="currentColor"></circle></svg></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
+        <div id="modal-content" class="bg-gray-800 rounded-xl shadow-2xl shadow-indigo-500/20 p-6 w-full max-w-sm m-4 text-center transform transition-all duration-300">
+            <div class="flex justify-end">
+                <button id="modal-close-button" class="text-gray-400 hover:text-white" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="mt-[-1.5rem] px-4 pb-4">
+                <h3 class="text-2xl font-bold text-white mb-4">Coming Soon!</h3>
+                <p class="text-gray-300">This feature is currently under development. The project links will be available shortly. Thank you for your patience!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load bundled JavaScript -->
+    <script type="module" src="/index.js"></script>
+</body>
 </html>
