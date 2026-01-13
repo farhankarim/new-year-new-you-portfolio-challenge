@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#111827" />
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://generativelanguage.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://generativelanguage.googleapis.com;">
     
     <!-- Preconnect to required origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,8 +23,8 @@
     <link rel="preconnect" href="https://esm.sh">
     <link rel="preconnect" href="https://generativelanguage.googleapis.com">
 
-    <!-- Optimized Font Loading (non-render-blocking) -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Optimized Font Loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     
     <!-- Preload critical CSS -->
